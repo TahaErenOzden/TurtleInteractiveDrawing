@@ -1,16 +1,43 @@
-# This is a sample Python script.
+import turtle
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+drawing_board = turtle.Screen()
+drawing_board.bgcolor("light blue")
+drawing_board.title("Python Turtle")
+
+turtle_instance = turtle.Turtle()
+
+def turtle_forward():
+    turtle_instance.forward(100)
+
+def rotate_angle_right():
+    turtle_instance.setheading(turtle_instance.heading() - 100)
+    #turtle_instance.right(10)
+
+def rotate_angle_left():
+    turtle_instance.setheading(turtle_instance.heading() + 100)
+    #turtle_instance.left(10)
+def clear_screen():
+    turtle_instance.clear()
+
+def turtle_return_home():
+    turtle_instance.pendown()
+    turtle_instance.penup()
+    turtle_instance.home()
+
+def turtle_pen_up():
+    turtle_instance.penup()
+
+def turtle_pen_down():
+    turtle_instance.pendown()
+
+drawing_board.listen()
+drawing_board.onkey(fun= turtle_forward, key="space")
+drawing_board.onkey(fun= rotate_angle_right, key="Down")
+drawing_board.onkey(fun= rotate_angle_left, key="Up")
+drawing_board.onkey(fun= clear_screen, key="c")
+drawing_board.onkey(fun= turtle_return_home, key="r")
+drawing_board.onkey(fun= turtle_pen_up, key="w")
+drawing_board.onkey(fun= turtle_pen_down, key="q")
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+turtle.mainloop()
